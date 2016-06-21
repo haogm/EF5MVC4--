@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="DBContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SysSample" EntityType="DB.SysSample" />
+    <EntitySet Name="SysModule" EntityType="DB.SysModule" />
+    <AssociationSet Name="FK_SysModule_SysModule" Association="DB.FK_SysModule_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModule1" EntitySet="SysModule" />
+    </AssociationSet>
+    <EntitySet Name="SysException" EntityType="DB.SysException" />
+    <EntitySet Name="SysLog" EntityType="DB.SysLog" />
+  </EntityContainer>
+  <EntityType Name="SysSample">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Age" />
+    <Property Type="DateTime" Name="Bir" Precision="3" />
+    <Property Type="String" Name="Photo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnglishName" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParentId" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Url" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Iconic" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="String" Name="Remark" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="State" />
+    <Property Type="String" Name="CreatePerson" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+    <Property Type="Boolean" Name="IsLast" Nullable="false" />
+    <Property Type="Binary" Name="Version" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="SysModule1" Relationship="DB.FK_SysModule_SysModule" FromRole="SysModule" ToRole="SysModule1" />
+    <NavigationProperty Name="SysModule2" Relationship="DB.FK_SysModule_SysModule" FromRole="SysModule1" ToRole="SysModule" />
+  </EntityType>
+  <Association Name="FK_SysModule_SysModule">
+    <End Type="DB.SysModule" Role="SysModule" Multiplicity="0..1" />
+    <End Type="DB.SysModule" Role="SysModule1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysModule1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SysException">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HelpLink" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Message" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Source" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StackTrace" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TargetSite" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Data" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Operator" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Message" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Result" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Type" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Module" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+  </EntityType>
+</Schema>

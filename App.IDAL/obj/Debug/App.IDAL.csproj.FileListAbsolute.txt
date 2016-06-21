@@ -1,0 +1,14 @@
+F:\日志\AppSolution\App.IDAL\obj\Debug\App.IDAL.csprojResolveAssemblyReference.cache
+F:\日志\AppSolution\App.IDAL\bin\Debug\App.IDAL.dll
+F:\日志\AppSolution\App.IDAL\bin\Debug\App.IDAL.pdb
+F:\日志\AppSolution\App.IDAL\bin\Debug\App.Models.dll
+F:\日志\AppSolution\App.IDAL\bin\Debug\App.Models.pdb
+F:\日志\AppSolution\App.IDAL\obj\Debug\App.IDAL.dll
+F:\日志\AppSolution\App.IDAL\obj\Debug\App.IDAL.pdb
+D:\Test\MVC4+EF5.0+EASYUI+UNITY2.X__14讲源码\AppSolution\App.IDAL\bin\Debug\App.IDAL.dll
+D:\Test\MVC4+EF5.0+EASYUI+UNITY2.X__14讲源码\AppSolution\App.IDAL\bin\Debug\App.IDAL.pdb
+D:\Test\MVC4+EF5.0+EASYUI+UNITY2.X__14讲源码\AppSolution\App.IDAL\bin\Debug\App.Models.dll
+D:\Test\MVC4+EF5.0+EASYUI+UNITY2.X__14讲源码\AppSolution\App.IDAL\bin\Debug\App.Models.pdb
+D:\Test\MVC4+EF5.0+EASYUI+UNITY2.X__14讲源码\AppSolution\App.IDAL\obj\Debug\App.IDAL.csprojResolveAssemblyReference.cache
+D:\Test\MVC4+EF5.0+EASYUI+UNITY2.X__14讲源码\AppSolution\App.IDAL\obj\Debug\App.IDAL.dll
+D:\Test\MVC4+EF5.0+EASYUI+UNITY2.X__14讲源码\AppSolution\App.IDAL\obj\Debug\App.IDAL.pdb

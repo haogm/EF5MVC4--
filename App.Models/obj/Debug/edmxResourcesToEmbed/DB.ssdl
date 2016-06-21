@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DBStoreContainer">
+    <EntitySet Name="SysException" EntityType="DB.Store.SysException" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysLog" EntityType="DB.Store.SysLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysModule" EntityType="DB.Store.SysModule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysSample" EntityType="DB.Store.SysSample" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_SysModule_SysModule" Association="DB.Store.FK_SysModule_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModule1" EntitySet="SysModule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SysException">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="HelpLink" Type="varchar" MaxLength="500" />
+    <Property Name="Message" Type="varchar" MaxLength="500" />
+    <Property Name="Source" Type="varchar" MaxLength="500" />
+    <Property Name="StackTrace" Type="text" />
+    <Property Name="TargetSite" Type="varchar" MaxLength="500" />
+    <Property Name="Data" Type="varchar" MaxLength="500" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Operator" Type="varchar" MaxLength="50" />
+    <Property Name="Message" Type="varchar" MaxLength="500" />
+    <Property Name="Result" Type="varchar" MaxLength="20" />
+    <Property Name="Type" Type="varchar" MaxLength="20" />
+    <Property Name="Module" Type="varchar" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="EnglishName" Type="varchar" MaxLength="200" />
+    <Property Name="ParentId" Type="varchar" MaxLength="50" />
+    <Property Name="Url" Type="varchar" MaxLength="200" />
+    <Property Name="Iconic" Type="varchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Remark" Type="varchar" MaxLength="4000" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="IsLast" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="SysSample">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Bir" Type="datetime" />
+    <Property Name="Photo" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="text" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_SysModule_SysModule">
+    <End Role="SysModule" Type="DB.Store.SysModule" Multiplicity="0..1" />
+    <End Role="SysModule1" Type="DB.Store.SysModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysModule1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
